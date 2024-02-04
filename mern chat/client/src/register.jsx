@@ -1,10 +1,12 @@
+import axios from "axios";
 import { useState } from "react";
 
 export default function Register() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    function register(){
-        
+    async function register(ev){
+        ev.preventDefault();
+        await axios.post('/register', {username,password});
     }
     return(
         <div className="bg-blue-50 h-screen flex items-center">
