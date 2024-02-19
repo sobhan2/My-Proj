@@ -8,7 +8,7 @@ import { AccountContext } from '../../context/AccountProvider';
 
 const dialogStyle = {
     height: '95%',
-    witdh: '80%',
+    width: '80%',
     marginTop: '12%',
     textAlign: 'center',
     maxHeight: '100%',
@@ -30,9 +30,14 @@ const StyledList = styled(List)`
 const QRCode = styled('img')({
     height: 264,
     witdh: 264,
-    padding: '50px 100px 0 0',
+    padding: '50px 0 0 0',
+    right: '0',
    
 })
+
+const SBox = styled(Box)`
+      padding-left: 300px,
+`
 
 const Component = styled(Box)`
     display: flex;
@@ -81,14 +86,14 @@ const LoginDialog = () => {
                 </Container>
                 <Box>
                     <QRCode src={qrCodeImage} alt="qr code" />
-                    <Box padding="0 0 0 20px">
+                    <SBox >
                         <GoogleLogin 
                             onSuccess={onLoginSuccess}
                             onError={onLoginError}
                             
                             
                         />
-                    </Box>
+                    </SBox>
                 </Box>
             </Component>
 

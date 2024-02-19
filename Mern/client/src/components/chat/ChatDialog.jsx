@@ -1,7 +1,34 @@
+import { Dialog, Box } from "@mui/material";
+
+const dialogStyle = {
+    height: '95%',
+    width: '100%',
+    margin: '20px',
+    textAlign: 'center',
+    maxHeight: '100%',
+    maxWidth: '100%',
+    boxShadow: 'none',
+    overflow: 'hidden'
+}
+
 const ChatDialog = () => {
 
     return (
-        <p>hello from chat dialog</p>
+        <Dialog
+            open={true} PaperProps={{sx: dialogStyle}} hideBackdrop={true}
+        >
+            <p>Jai shree Radhe</p>
+
+            <Box>
+                <Box>
+
+                </Box>
+                <Box>
+                    
+                </Box>
+            </Box>
+
+        </Dialog>
     );
 }
 
