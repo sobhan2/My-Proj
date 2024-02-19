@@ -28,7 +28,8 @@ const StyledList = styled(List)`
 const QRCode = styled('img')({
     height: 264,
     witdh: 264,
-    padding: '50px 100px 0 100px'
+    padding: '50px 100px 0 100px',
+   
 })
 
 const Component = styled(Box)`
@@ -45,15 +46,16 @@ const Title = styled(Typography)`
 
 const Container = styled(Box)`
     padding: 56px 0 56px 56px;
+    
+
 `
-
-
+const GoogleO = styled('GoogleLogin')()
 
 
 const LoginDialog = () => {
 
-    const onLoginSuccess = () => {
-    
+    const onLoginSuccess = (req) => {
+         console.log(req);
     }
 
     const onLoginError = () => {
@@ -77,6 +79,8 @@ const LoginDialog = () => {
                         <GoogleLogin 
                             onSuccess={onLoginSuccess}
                             onError={onLoginError}
+                            
+                            
                         />
                     </Box>
                 </Box>
