@@ -8,10 +8,16 @@ const dialogStyle = {
     marginTop: '12%',
     textAlign: 'center',
     maxHeight: '100%',
-    maxWidth: '100%',
+    maxWidth: '200%',
     boxShadow: 'none',
     overflow: 'none'
 }
+
+const QRCode = styled('img')({
+    height: 264,
+    witdh: 264,
+    padding: '50px 0 0 50px'
+})
 
 const Component = styled(Box)`
     display: flex;
@@ -34,7 +40,7 @@ const LoginDialog = () => {
                     </List>
                 </Container>
                 <Box>
-                    <img src={qrCodeImage} alt="qr code" />
+                    <QRCode src={qrCodeImage} alt="qr code" />
                 </Box>
             </Component>
 
