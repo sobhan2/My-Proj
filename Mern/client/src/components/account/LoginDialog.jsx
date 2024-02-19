@@ -1,8 +1,10 @@
-
+import { useContext } from 'react';
 
 import {Dialog , Box,List ,ListItem, Typography, styled} from '@mui/material'
 import { qrCodeImage } from '../../constants/data';
-import {GoogleLogin} from '@react-oauth/google'
+import {GoogleLogin} from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
+import { AccountContext } from '../../context/AccountProvider';
 
 const dialogStyle = {
     height: '95%',
@@ -28,7 +30,7 @@ const StyledList = styled(List)`
 const QRCode = styled('img')({
     height: 264,
     witdh: 264,
-    padding: '50px 100px 0 100px',
+    padding: '50px 100px 0 0',
    
 })
 
@@ -45,26 +47,30 @@ const Title = styled(Typography)`
 `
 
 const Container = styled(Box)`
-    padding: 56px 0 56px 56px;
+    padding: 56px 100px 56px 56px;
     
 
 `
-const GoogleO = styled('GoogleLogin')()
+
 
 
 const LoginDialog = () => {
 
-    const onLoginSuccess = (req) => {
-         console.log(req);
+    const { setAccount } = useContext(AccountContext)
+
+    const onLoginSuccess = (res) => {
+        const decoded = jwtDecode(res.credential)
+         
+        setAccount(decoded)
     }
 
-    const onLoginError = () => {
-    
+    const onLoginError = (res) => {
+        console.log('Login Failed' , res);
     }
 
 
     return(
-        <Dialog open={true} PaperProps={{sx: dialogStyle}}>
+        <Dialog open={true} PaperProps={{sx: dialogStyle}} hideBackdrop={true}>
             <Title>Welcome to FireDWeller</Title>
             <Component>
                 <Container>
@@ -75,7 +81,7 @@ const LoginDialog = () => {
                 </Container>
                 <Box>
                     <QRCode src={qrCodeImage} alt="qr code" />
-                    <Box>
+                    <Box padding="0 0 0 20px">
                         <GoogleLogin 
                             onSuccess={onLoginSuccess}
                             onError={onLoginError}
