@@ -1,4 +1,6 @@
 import { Dialog, Box } from "@mui/material";
+//Components
+import Menu from "./Menu/Menu";
 
 const dialogStyle = {
     height: '95%',
@@ -21,7 +23,7 @@ const ChatDialog = () => {
 
             <Box>
                 <Box>
-
+                    <Menu />
                 </Box>
                 <Box>
                     
