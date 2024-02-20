@@ -1,6 +1,7 @@
 import { Dialog, Box } from "@mui/material";
 //Components
 import Menu from "./Menu/Menu";
+import EmptyChat from "./chat/EmptyChat";
 
 const dialogStyle = {
     height: '95%',
@@ -26,7 +27,7 @@ const ChatDialog = () => {
                     <Menu />
                 </Box>
                 <Box>
-                    
+                    <EmptyChat />
                 </Box>
             </Box>
 
