@@ -38,6 +38,9 @@ const QRCode = styled('img')({
 const SBox = styled(Box)`
       padding-left: 300px,
 `
+const LeftBox = styled(Box)`
+    float: left,
+`
 
 const Component = styled(Box)`
     display: flex;
@@ -84,7 +87,7 @@ const LoginDialog = () => {
                         <ListItem>2. Tap Menu Settings and select FireDWeller</ListItem>
                     </StyledList>
                 </Container>
-                <Box>
+                <LeftBox>
                     <QRCode src={qrCodeImage} alt="qr code" />
                     <SBox >
                         <GoogleLogin 
@@ -94,7 +97,7 @@ const LoginDialog = () => {
                             
                         />
                     </SBox>
-                </Box>
+                </LeftBox>
             </Component>
 
 

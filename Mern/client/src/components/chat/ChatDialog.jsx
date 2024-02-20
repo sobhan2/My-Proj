@@ -1,7 +1,9 @@
-import { Dialog, Box } from "@mui/material";
+import { Dialog, Box, styled } from "@mui/material";
 //Components
 import Menu from "./Menu/Menu";
 import EmptyChat from "./chat/EmptyChat";
+
+
 
 const dialogStyle = {
     height: '95%',
@@ -14,22 +16,34 @@ const dialogStyle = {
     overflow: 'hidden'
 }
 
+const Components = styled(Box)`
+    display: flex;
+`
+const LeftComponent = styled(Box)`
+    min-width: 450px ;
+`
+const RightComponent = styled(Box)`
+    width: 73% ;
+    min-width: 300px;
+    height: 100%;
+    border-left: 1px solid rgba(0, 0, 0, 0.5)
+`
 const ChatDialog = () => {
 
     return (
         <Dialog
-            open={true} PaperProps={{sx: dialogStyle}} hideBackdrop={true}
+            open={true} PaperProps={{sx: dialogStyle}} hideBackdrop={true} maxWidth={'md'}
         >
             <p>Jai shree Radhe</p>
 
-            <Box>
-                <Box>
+            <Components>
+                <LeftComponent>
                     <Menu />
-                </Box>
-                <Box>
+                </LeftComponent>
+                <RightComponent>
                     <EmptyChat />
-                </Box>
-            </Box>
+                </RightComponent>
+            </Components>
 
         </Dialog>
     );

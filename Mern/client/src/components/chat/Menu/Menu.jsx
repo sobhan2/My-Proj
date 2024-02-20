@@ -3,10 +3,17 @@
 
 
 
+//Components
+import { Box } from "@mui/material";
+import Header from "./Header";
+
+
 const Menu = () => {
 
     return (
-        <div>hello from Menu</div>
+        <Box>
+            <Header />
+        </Box>
     )
 }
 
